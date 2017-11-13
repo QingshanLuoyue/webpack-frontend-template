@@ -1,0 +1,42 @@
+@mixin border-1px ($color, $posi: 'bottom') {
+    position: relative;
+    &:after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        #{$posi}: 0;
+        width: 100%;
+        border-top: 1px solid $color;
+        transform: scaleY(0.5);
+    }
+}
+
+// 不适用于input控件，通用于按钮等
+@mixin border-around-1px($color) {
+    position: relative;
+    &:after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        border: 1px solid $color;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+        box-sizing: border-box;
+    }
+}
+
+@mixin arrow($w, $h, $borderWidth, $borderColor, $deg) {
+    width: $w;
+    height: $h;
+    border-color: transparent;
+    border-style: solid;
+    border-width: $borderWidth;
+    border-top-color: $borderColor;
+    border-right-color: $borderColor;
+    transform: rotate($deg);
+    z-index: 10;
+}

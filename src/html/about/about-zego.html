@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 公共meta -->
+    ${require("html-loader!../../components/meta/common_meta.html")}
+    
+    <!-- 通用css模块 -->
+    ${require("html-loader!../../components/assets/commoncss.html")}
+
+    <title>了解即构 - 即构科技</title>
+</head>
+
+<body class="none">
+    <div id="app">
+        <!-- 顶部导航 -->
+        ${require("html-loader!../../components/header/header.html")}
+
+        <!-- 底部 -->
+        ${require("html-loader!../../components/footer/footer.html")}
+    </div>
+    <!-- 申请试用 -->
+    ${require("html-loader!../../components/apply/apply.html")}
+
+    <!-- 通用js模块 -->
+    ${require("html-loader!../../components/assets/commonjs.html")}
+    
+    <!-- built files will be auto injected -->
+</body>
+
+</html>

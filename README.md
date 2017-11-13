@@ -1,2 +1,2 @@
 # webpack-frontend-template
-这是一个webpack版的前段快速开发模版
+这是一个传统网页类型的webpack版的前端快速开发模版
