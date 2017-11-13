@@ -8,8 +8,6 @@ const path = require('path');
 
 const express = require('express');
 let app = express();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
@@ -93,26 +91,6 @@ rm(path.resolve(__dirname, '../test'), err => {
     app.use(webpackHotMiddleware(compiler, {
         log: console.log(1)
     }));
-
-    app.get('/ws', function(req, res){
-        console.log('请求到ws！');
-        io.on('connection', function(socket) {
-            console.log('收到消息！');
-            //监听用户发布聊天内容
-            socket.on('message', function(obj) {
-                //向所有客户端广播发布的消息
-                io.emit('message', obj);
-            });
-        });
-    });
-    io.on('connection', function(socket) {
-        console.log('收到消息！');
-        //监听用户发布聊天内容
-        socket.on('message', function(obj) {
-            //向所有客户端广播发布的消息
-            io.emit('message', obj);
-        });
-    });
 
 
     app.listen(port, function() {
